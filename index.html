@@ -7,8 +7,8 @@
 		<meta charset="utf-8">
 		<title>Lost Pacman</title>
 		<!-- Libs -->
-		<cript src="https://aframe.io/releases/0.6.1/aframe.min.js"></cript>
-		<cript src="src/lib/jsfxr.js"></cript>
+		<script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+		<script src="src/lib/jsfxr.js"></script>
 		<script src="src/lib/audio.js"></script>
 		<script src="src/lib/sounds.js"></script>
 		<script src="src/lib/colors.js"></script>
@@ -23,12 +23,13 @@
 				gameOver		= false,
 				gameFinish		= false,
 				retry			= false,
-				countDownTimer	= 7,
+				countDownTimer	= 1,
 				newGameTimer	= 3,
 				localStorageId  = 'js13k2017-lost-pacman-hscore',
 				storeScore		= true,
 				flagGameOver	= false,
-				pacmanPos		= {x:0, y:0};
+				pacmanPos		= {x:0, z:0},
+				playerPos		= {x:0, z:0};
 				//localStorage.removeItem(localStorageId);
 		</script>
 		<!-- Components -->
@@ -55,7 +56,7 @@
 		        <a-entity  id="cursor"
 						   pointer
 						   cursor="fuse: false; fuseTimeout: 300"
-		                   position="0 0 -0.4"
+		                   position="0 0 0"
 		                   geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.007"
 		                   material="color: #f00; shader: flat"
 						   raycaster="far:1">

@@ -29,6 +29,11 @@ AFRAME.registerSystem('game', {
         this.tileSize = 1;
         // Create map
         this.createMap();
+        // Player in position
+        playerPos.x = 1;
+        playerPos.z = 5;
+        //player.setAttribute('position', {x : playerPos.x, y : 0, z : playerPos.z});
+
         // Instantiate phantoms. Random positions near center
         this.instantiatePhantom(colors[0]);
         this.instantiatePhantom(colors[4]);
@@ -156,7 +161,7 @@ AFRAME.registerSystem('game', {
             targetX = ~~(Math.random() * ((cols - 1) - 1) + 1);
             targetZ = ~~(Math.random() * ((rows - 1) - 1) + 1);
 
-            if(this.map[targetZ][targetX] === 0){
+            if(this.map[targetZ][targetX] === 0 && (targetX !== playerPos.x && targetZ !== playerPos.z)){
                 return {x: targetX, z: targetZ};
             }
         }
