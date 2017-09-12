@@ -8,7 +8,7 @@ AFRAME.registerSystem('game', {
             localStorage.setItem(localStorageId, JSON.stringify([]));
         }
         scores = JSON.parse(localStorage.getItem(localStorageId));
-        console.log(scores);
+
         // Map
         this.map = [
             [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
@@ -189,8 +189,7 @@ AFRAME.registerSystem('game', {
         var scene 	= document.querySelector("a-scene");
         var el 		= document.createElement('a-entity');
 
-        //var freePos = this.getFreePosition();
-        var freePos = {x:1, y:0.2, z:1};
+        var freePos = this.getFreePosition();
         el.setAttribute('position', {x: freePos.x, y: 0.05, z: freePos.z});
         pacmanPos.x = freePos.x;
         pacmanPos.z = freePos.z;
