@@ -11,14 +11,6 @@ AFRAME.registerComponent('check-phantom', {
             go           = false;
 			gameOver     = true;
             storeScore   = false;
-
-            // Store score
-            /*
-            scoreStored = JSON.parse(localStorage.getItem(localStorageId));
-            scoreStored.push(score);
-            localStorage.removeItem(localStorageId);
-            localStorage.setItem(localStorageId, JSON.stringify(scoreStored));
-            //*/
         }
     },
 

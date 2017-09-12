@@ -5,9 +5,12 @@ AFRAME.registerComponent('move-player', {
         var scene 	  = document.querySelector("a-scene");
     },
     tick: function(time, timeDelta){
-        if(this.checkPacman() === true && storeScore === true){
+        if(this.checkPacman() === true){
             go = false;
             gameFinish = true;
+        }
+        if(this.checkPacman() === true && storeScore === true){
+            storeScore = false;
 
             // Store score
             scores = JSON.parse(localStorage.getItem(localStorageId));
