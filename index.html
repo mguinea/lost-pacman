@@ -6,6 +6,8 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no">
 		<meta charset="utf-8">
 		<title>Lost Pacman</title>
+	</head>
+	<body>
 		<!-- Libs -->
 		<script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
 		<script src="src/lib/jsfxr.min.js"></script>
@@ -43,8 +45,6 @@
 		<script src="src/components/move-player.js"></script>
 		<!-- Systems -->
 		<script src="src/systems/game.js"></script>
-	</head>
-	<body>
 		<a-scene game> <!-- optional: stats -->
 			<a-entity id="camera" class="player" camera="userHeight: 0.5" look-controls position="1 0 5" rotation="0 0 0" move-player check-cookie check-phantom>
 				<a-entity light="color: #fff; intensity: 0.8; type: point;" position="0 0 0"></a-entity>
