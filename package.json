@@ -1,19 +1,37 @@
 {
-  "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
-    "gulp-concat": "^2.6.1",
-    "gulp-htmlmin": "^3.0.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-replace": "^0.6.1",
-    "gulp-rimraf": "^0.2.1",
-    "gulp-uglify": "^3.0.0",
-    "gulp-unzip": "^0.2.0",
-    "gulp-util": "^3.0.8",
-    "gulp-zip": "^4.0.0"
+  "author": "Marc Guinea Casas <develop.marcguinea@gmail.com>",
+  "name": "lost-pacman",
+  "version": "1.0.0",
+  "description": "Entry for js13k 2017 compo. A-Frame category.",
+  "license": "MIT",
+  "homepage": "https://github.com/mguinea/lost-pacman#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mguinea/lost-pacman.git"
+  },
+  "main": "src/main.js",
+  "scripts": {
+    "_clean": "rm -rf build/; mkdir -p build",
+    "_build": "NODE_ENV=production webpack --config webpack.config --progress --colors",
+    "_watch": "webpack --config webpack.config --colors --watch",
+    "_zip": "cd build; zip -r ./build.zip .; wc -c ./build.zip",
+    "_lint": "eslint ./src --fix",
+    "_package": "npm run clean && npm run build && npm run zip",
+    "_start:dev": "webpack-dev-server",
+    "start": "webpack-dev-server --mode development",
+    "build": "webpack --mode production",
+    "postbuild": "node postbuild.js"
   },
   "devDependencies": {
-    "gulp-jshint": "^2.0.4",
-    "gulp-watch": "^4.3.11",
-    "jshint": "^2.9.5"
+    "archiver": "^2.1.1",
+    "css-loader": "^1.0.0",
+    "html-webpack-inline-source-plugin": "0.0.10",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.0",
+    "style-loader": "^0.22.1",
+    "webpack": "^4.17.0",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
   }
 }
