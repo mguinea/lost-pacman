@@ -1,3 +1,5 @@
+import {Canvas} from "../classes/Canvas";
+
 export class Entity {
     constructor(x, y, z, settings) {
         this.scene = document.querySelector('a-scene');
@@ -10,16 +12,15 @@ export class Entity {
     }
 
 
-    attachCanvas() {
-        let assets = document.querySelector('a-assets'),
-            canvas = document.createElement('canvas'),
-            id = 'canvas-' + (Math.random() * 100000000000000000);
-        canvas.id = id;
-        canvas.width = 1400;
-        canvas.height = 1500;
+    attachCanvas(id, width, height) {
+        let assets = document.querySelector('a-assets');
+        let canvas = new Canvas(id, width, height);
+
         assets.appendChild(canvas);
         this.el.canvas = canvas;
-        return id;
+        let ctx = canvas.getContext('2d');
+        Canvas.setVendorAttribute( ctx , 'imageSmoothingEnabled', false );
+        this.el.ctx = ctx;
     }
 
     addAnim( name, velocity, frames) {
